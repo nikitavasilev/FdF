@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2021/12/26 01:05:49 by nvasilev         ###   ########.fr        #
+#    Updated: 2021/12/26 02:43:44 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,9 @@ UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_strjoin.c \
 				./utils/ft_strlen.c \
 				./utils/ft_substr.c \
-				./utils/get_next_line.c
+				./utils/get_next_line.c \
+				./utils/ft_isdigit.c \
+				./utils/ft_atoi.c
 
 ################################################################################
 #                                     OBJECTS                                  #
