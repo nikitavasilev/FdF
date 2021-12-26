@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 12:09:26 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/26 08:49:18 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/26 09:18:16 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ int	main(int argc, char const *argv[])
 
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FdF");
-	data->zoom = 20;
+	data->zoom = 40;
 	data->prev_key = 0;
+	data->shift_x = 270;
+	data->shift_y = 270;
 
 	//bresenham(10, 10, 600, 300, data);
 	draw(data);

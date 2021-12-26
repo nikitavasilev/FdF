@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:52:34 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/26 08:52:38 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/26 09:04:06 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void	fill_matrix(int *z_line, char *line)
 	i = 0;
 	while (nums[i])
 	{
-		z_line[i] = ft_atoi(nums[i]);
+		if (i <= 18)
+			z_line[i] = ft_atoi(nums[i]);
 		free(nums[i]);
 		i++;
 	}
