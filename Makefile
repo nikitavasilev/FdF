@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2021/12/26 02:43:44 by nvasilev         ###   ########.fr        #
+#    Updated: 2021/12/26 06:56:18 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME = 			fdf
 
 CC = 			gcc
-CFLAGS =		-Wall -Wextra -Werror
+CFLAGS =		-Wall -Wextra -Werror -g
 RM =			rm -f
 
 MLX = minilibx-linux/libmlx.a
@@ -28,7 +28,9 @@ INCLUDES = -I minilibx-linux/
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS =			./srcs/main.c
+SRCS =			./srcs/main.c \
+				./srcs/read_file.c \
+				./srcs/draw.c
 
 UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_putstr_fd.c \
@@ -41,7 +43,8 @@ UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_substr.c \
 				./utils/get_next_line.c \
 				./utils/ft_isdigit.c \
-				./utils/ft_atoi.c
+				./utils/ft_atoi.c \
+				./utils/ft_split.c
 
 ################################################################################
 #                                     OBJECTS                                  #
@@ -57,7 +60,7 @@ OBJS =			$(UTILS:%.c=%.o)
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS)  $(INCLUDES) $(LIBS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) -c $< -o $@
 
 $(NAME): $(MLX) $(OBJS) $(OBJS_SRCS)
 	$(CC) $(OBJS) $(OBJS_SRCS) $(INCLUDES) $(LIBS) -o $@
