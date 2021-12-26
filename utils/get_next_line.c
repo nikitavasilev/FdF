@@ -6,11 +6,11 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 02:58:22 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/08/18 19:14:13 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/26 02:25:24 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 /*
 *	FREE_AND_RESET
