@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/26 08:21:45 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/28 03:10:39 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,13 @@
 # include <math.h>
 
 # define MAX(a, b) ((a > b) ? a : b)
+# define MIN(a, b) ((a < b) ? a : b)
 # define MOD(a) ((a < 0) ? -a : a)
+
+# define WIDTH 1920
+# define HEIGHT 1080
+# define MENU_WIDTH 240
+# define NAME "FdF - 3D Wireframe Viewer"
 
 typedef struct s_params
 {
@@ -51,6 +57,7 @@ typedef struct s_fdf
 void	read_map(const char *file_name, t_fdf *data);
 void	bresenham(float x, float y, float x1, float y1, t_fdf *data);
 void	draw(t_fdf *data);
+void	print_menu(t_fdf *data);
 
 // UTILS
 void	ft_bzero(void *s, size_t n);
