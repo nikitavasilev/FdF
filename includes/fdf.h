@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/28 03:10:39 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/28 17:54:35 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FDF_H
 
 # include "../minilibx-linux/mlx.h"
-# include "get_next_line.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -27,8 +26,8 @@
 # define MIN(a, b) ((a < b) ? a : b)
 # define MOD(a) ((a < 0) ? -a : a)
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 1600
+# define HEIGHT 900
 # define MENU_WIDTH 240
 # define NAME "FdF - 3D Wireframe Viewer"
 
@@ -67,5 +66,6 @@ void	ft_putstr_fd(const char *str, int fd);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
+char	*get_next_line(int fd);
 
 #endif

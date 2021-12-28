@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 03:22:45 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/28 04:45:00 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/28 17:55:31 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef enum e_boolean {FALSE, TRUE}	t_boolean;
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 6
+#  define BUFFER_SIZE 42
 # endif
 
 # ifndef MAX_FD

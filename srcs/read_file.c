@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:52:34 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/28 05:09:44 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/28 20:31:38 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,35 +31,28 @@ int		ft_wdcounter(char const *str, char c)
 	return (words);
 }
 
-int	get_height(const char *file_name)
+void	get_height_and_width(const char *file_name, t_fdf *data)
 {
 	char	*line;
 	int		fd;
 	int		height;
 
-	fd = open(file_name, O_RDONLY, 0);
+	line = NULL;
+	fd = open(file_name, O_RDONLY);
 	height = 0;
+	if ((line = get_next_line(fd)))
+	{
+		data->width = ft_wdcounter(line, ' ');
+		height++;
+		free(line);
+	}
 	while ((line = get_next_line(fd)))
 	{
 		height++;
 		free(line);
 	}
 	close(fd);
-	return (height);
-}
-
-int	get_width(const char *file_name)
-{
-	char	*line;
-	int		fd;
-	int		width;
-
-	fd = open(file_name, O_RDONLY, 0);
-	line = get_next_line(fd);
-	width = ft_wdcounter(line, ' ');
-	free(line);
-	close(fd);
-	return (width);
+	data->height = height;
 }
 
 void	fill_matrix(int *z_line, char *line)
@@ -84,14 +77,14 @@ void	read_map(const char *file_name, t_fdf *data)
 	char	*line;
 	int		i;
 
-	data->height = get_height(file_name);
-	data->width = get_width(file_name);
+	line = NULL;
+	get_height_and_width(file_name, data);
 	data->zoom = MIN((WIDTH - MENU_WIDTH) / data->width / 2, HEIGHT / data->height / 2);
 	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
 	while (i <= data->height)
 		data->z_matrix[i++] = (int *)malloc(sizeof(int) * (data->width + 1));
-	fd = open(file_name, O_RDONLY, 0);
+	fd = open(file_name, O_RDONLY);
 	i = 0;
 	while (i < data->height)
 	{
