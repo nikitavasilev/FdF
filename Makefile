@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2021/12/26 06:56:18 by nvasilev         ###   ########.fr        #
+#    Updated: 2021/12/28 01:02:07 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ INCLUDES = -I minilibx-linux/
 
 SRCS =			./srcs/main.c \
 				./srcs/read_file.c \
-				./srcs/draw.c
+				./srcs/draw.c \
+				./srcs/menu.c
 
 UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_putstr_fd.c \
