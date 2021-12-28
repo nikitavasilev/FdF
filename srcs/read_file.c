@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:52:34 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/26 09:04:06 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/28 05:09:44 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,7 @@ void	fill_matrix(int *z_line, char *line)
 	i = 0;
 	while (nums[i])
 	{
-		if (i <= 18)
-			z_line[i] = ft_atoi(nums[i]);
+		z_line[i] = ft_atoi(nums[i]);
 		free(nums[i]);
 		i++;
 	}
@@ -87,6 +86,7 @@ void	read_map(const char *file_name, t_fdf *data)
 
 	data->height = get_height(file_name);
 	data->width = get_width(file_name);
+	data->zoom = MIN((WIDTH - MENU_WIDTH) / data->width / 2, HEIGHT / data->height / 2);
 	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
 	while (i <= data->height)
