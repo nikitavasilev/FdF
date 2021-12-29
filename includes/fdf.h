@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/28 17:54:35 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/29 01:50:33 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,21 @@
 # define MIN(a, b) ((a < b) ? a : b)
 # define MOD(a) ((a < 0) ? -a : a)
 
-# define WIDTH 1600
-# define HEIGHT 900
+# define WIDTH 1920
+# define HEIGHT 1080
 # define MENU_WIDTH 240
 # define NAME "FdF - 3D Wireframe Viewer"
 
-typedef struct s_params
+typedef struct	s_data
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		*tmp;
-}	t_params;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_data;
 
-typedef struct s_fdf
+typedef struct	s_fdf
 {
 	int		width;
 	int		height;
@@ -51,12 +53,14 @@ typedef struct s_fdf
 	int		**z_matrix;
 	void	*mlx_ptr;
 	void	*win_ptr;
+	t_data	*img;
 }	t_fdf;
 
 void	read_map(const char *file_name, t_fdf *data);
-void	bresenham(float x, float y, float x1, float y1, t_fdf *data);
-void	draw(t_fdf *data);
-void	print_menu(t_fdf *data);
+void	bresenham(float x, float y, float x1, float y1, t_fdf *data, t_data *img);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	draw(t_fdf *data, t_data *img);
+void	print_menu(t_fdf *data, t_data *img);
 
 // UTILS
 void	ft_bzero(void *s, size_t n);
