@@ -6,19 +6,33 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 06:31:38 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/28 02:20:17 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/29 02:19:02 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	isometric(float *x, float *y, int z)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	*x = (*x - *y) * cos(0.523599);
-	*y = (*x + *y) * sin(0.523599) - z;
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
 }
 
-void	bresenham(float x, float y, float x1, float y1, t_fdf *data)
+void	isometric(float *x, float *y, int z)
+{
+	int previous_x;
+	int previous_y;
+
+	previous_x = *x;
+	previous_y = *y;
+
+	*x = (previous_x - previous_y) * cos(0.523599);
+	*y = -z + (previous_x + previous_y) * sin(0.523599);
+}
+
+void	bresenham(float x, float y, float x1, float y1, t_fdf *data, t_data *img)
 {
 	float	x_step;
 	float	y_step;
@@ -55,30 +69,31 @@ void	bresenham(float x, float y, float x1, float y1, t_fdf *data)
 	y_step /= max;
 	while ((int)(x - x1) || (int)(y - y1))
 	{
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, data->color);
+		my_mlx_pixel_put(img, x, y, data->color);
 		x += x_step;
 		y += y_step;
 	}
 }
 
-void	draw(t_fdf *data)
+void	draw(t_fdf *data, t_data *img)
 {
 	int	x;
 	int	y;
 
+	ft_bzero(img->addr, WIDTH * HEIGHT * (img->bits_per_pixel / 8));
 	y = 0;
-	print_menu(data);
 	while (y < data->height)
 	{
 		x = 0;
 		while (x < data->width)
 		{
 			if (x < data->width - 1)
-				bresenham(x, y, x + 1, y, data);
+				bresenham(x, y, x + 1, y, data, img);
 			if (y < data-> height - 1)
-				bresenham(x, y, x, y + 1, data);
+				bresenham(x, y, x, y + 1, data, img);
 			x++;
 		}
 		y++;
 	}
+	print_menu(data, img);
 }
