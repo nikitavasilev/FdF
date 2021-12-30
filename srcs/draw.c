@@ -6,11 +6,12 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 06:31:38 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/29 02:19:02 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/30 04:33:32 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "fdf.h"
+#include "libft.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
