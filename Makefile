@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2021/12/30 06:22:02 by nvasilev         ###   ########.fr        #
+#    Updated: 2021/12/30 06:39:51 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS =			./srcs/main.c \
 				./srcs/draw.c \
 				./srcs/menu.c \
 				./srcs/init.c \
-				./srcs/error.c
+				./srcs/error.c \
+				./srcs/exit.c
 
 UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_putstr_fd.c \
