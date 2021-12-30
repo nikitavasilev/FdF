@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   wdcounter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 01:02:14 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 04:33:59 by nvasilev         ###   ########.fr       */
+/*   Created: 2021/12/30 04:42:26 by nvasilev          #+#    #+#             */
+/*   Updated: 2021/12/30 04:52:45 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+size_t	wdcounter(char const *str, char c)
 {
-	char	*str;
 	size_t	i;
+	size_t	words;
 
-	if (!s1 || !s2)
-		return (0);
-	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!str)
-		return (0);
+	words = 0;
 	i = 0;
-	while (s1[i])
+	while (str[i])
 	{
-		str[i] = s1[i];
-		i++;
+		while (str[i] == c && str[i])
+			i++;
+		if (str[i])
+			words++;
+		while (str[i] != c && str[i])
+			i++;
 	}
-	i = 0;
-	while (s2[i])
-	{
-		str[i + ft_strlen(s1)] = s2[i];
-		i++;
-	}
-	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	return (str);
+	return (words);
 }

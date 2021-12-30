@@ -6,13 +6,13 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 17:50:34 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/26 05:02:30 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/30 04:49:26 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include <stdlib.h>
 
-static void		str_fill(char *dest, const char *src, size_t n)
+static void	str_fill(char *dest, const char *src, size_t n)
 {
 	size_t	i;
 
@@ -44,7 +44,7 @@ static size_t	count_words(const char *str, char c)
 	return (count);
 }
 
-static char		**free_if_error(char **strs)
+static char	**free_if_error(char **strs)
 {
 	size_t	i;
 
@@ -58,15 +58,16 @@ static char		**free_if_error(char **strs)
 	return (0);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	row;
 	size_t	start;
 	char	**res;
 
-	if (!s || !(res = malloc((count_words(s, c) + 1) * sizeof(res))))
-		return (0);
+	res = malloc((count_words(s, c) + 1) * sizeof(res));
+	if (!s || !res)
+		return (NULL);
 	row = 0;
 	i = 0;
 	while (row < count_words(s, c))
@@ -76,11 +77,12 @@ char			**ft_split(char const *s, char c)
 		start = i;
 		while (((char *)s)[i] != c && ((char *)s)[i])
 			i++;
-		if (!(res[row] = malloc(i - start + 1)))
+		res[row] = malloc(i - start + 1);
+		if (!res)
 			return (free_if_error(res));
 		str_fill(res[row], s + start, i - start);
 		row++;
 	}
-	res[row] = 0;
+	res[row] = NULL;
 	return (res);
 }

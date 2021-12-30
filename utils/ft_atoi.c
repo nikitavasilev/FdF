@@ -6,11 +6,11 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 18:11:38 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/26 02:41:32 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/30 04:36:47 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "libft.h"
 
 static char	ft_sizeof_long(void)
 {

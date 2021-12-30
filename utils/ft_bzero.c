@@ -6,11 +6,11 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 16:47:54 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/10/19 15:01:57 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/30 04:36:21 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include <stddef.h>
 
 void	ft_bzero(void *s, size_t n)
 {

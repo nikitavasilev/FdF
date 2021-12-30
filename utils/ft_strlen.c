@@ -6,11 +6,11 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 01:01:10 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/26 01:01:54 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/30 04:33:05 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include <stddef.h>
 
 size_t	ft_strlen(const char *s)
 {

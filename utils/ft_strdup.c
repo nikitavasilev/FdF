@@ -6,11 +6,11 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 01:02:46 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/26 01:03:30 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/30 04:39:31 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {
