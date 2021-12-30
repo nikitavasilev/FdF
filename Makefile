@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2021/12/28 01:02:07 by nvasilev         ###   ########.fr        #
+#    Updated: 2021/12/30 06:22:02 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@
 NAME = 			fdf
 
 CC = 			gcc
-CFLAGS =		-Wall -Wextra -Werror -g
+CFLAGS =		-Wall -Wextra -Werror -O3 -g
 RM =			rm -f
 
 MLX = minilibx-linux/libmlx.a
 LIBS = -L minilibx-linux/ -lmlx -lXext -lX11
-INCLUDES = -I minilibx-linux/
+INCLUDES = -I ./minilibx-linux/ -I ./includes/
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
@@ -31,7 +31,9 @@ INCLUDES = -I minilibx-linux/
 SRCS =			./srcs/main.c \
 				./srcs/read_file.c \
 				./srcs/draw.c \
-				./srcs/menu.c
+				./srcs/menu.c \
+				./srcs/init.c \
+				./srcs/error.c
 
 UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_putstr_fd.c \
@@ -45,7 +47,8 @@ UTILS =			./utils/ft_putchar_fd.c \
 				./utils/get_next_line.c \
 				./utils/ft_isdigit.c \
 				./utils/ft_atoi.c \
-				./utils/ft_split.c
+				./utils/ft_split.c \
+				./utils/wdcounter.c
 
 ################################################################################
 #                                     OBJECTS                                  #
