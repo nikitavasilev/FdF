@@ -6,30 +6,12 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:52:34 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/29 06:24:05 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/30 05:16:16 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
-
-int		ft_wdcounter(char const *str, char c)
-{
-	int i;
-	int words;
-
-	words = 0;
-	i = 0;
-	while (str[i])
-	{
-		while (str[i] == c && str[i] != '\0')
-			i++;
-		if (str[i])
-			words++;
-		while (str[i] != c && str[i] != '\0')
-			i++;
-	}
-	return (words);
-}
+#include "fdf.h"
+#include "libft.h"
 
 void	get_height_and_width(const char *file_name, t_fdf *data)
 {
@@ -42,7 +24,7 @@ void	get_height_and_width(const char *file_name, t_fdf *data)
 	height = 0;
 	if ((line = get_next_line(fd)))
 	{
-		data->width = ft_wdcounter(line, ' ');
+		data->width = wdcounter(line, ' ');
 		height++;
 		free(line);
 	}
