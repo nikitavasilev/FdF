@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   text.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/28 00:54:49 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 04:06:41 by nvasilev         ###   ########.fr       */
+/*   Created: 2021/12/30 04:05:35 by nvasilev          #+#    #+#             */
+/*   Updated: 2021/12/30 04:14:11 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef TEXT_H
+# define TEXT_H
 
-# define COLOR_L_GREY		0xEAEAEA
-# define COLOR_WHITE		0xFFFFFF
-# define COLOR_DISCO		0x9A1F6A
-# define COLOR_BRICK_RED	0xC2294E
-# define COLOR_FLAMINGO		0xEC4B27
-# define COLOR_JAFFA		0xEF8633
-# define COLOR_SAFFRON		0xF3AF3D
+# define STR_MENU		"----- How to Use -----"
+# define STR_ZOOM		"Zoom: Scroll or +/-"
+# define STR_MOVE		"Move: Arrows"
+# define STR_ROTATE		"Rotate: Press & Move"
+# define STR_PROJECTION	"Projection"
+# define STR_ISOMETRIC	"ISO: Press [I]"
+# define STR_PARALLEL	"Parallel: Press [P]"
+# define STR_QUIT		"Quit: Press [ESC] or [CTRL + C]"
 
 #endif
