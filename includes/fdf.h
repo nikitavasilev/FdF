@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 06:20:46 by nvasilev         ###   ########.fr       */
+/*   Updated: 2021/12/30 06:40:11 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	init(t_fdf *data, t_data *img);
 void	init_shift(t_fdf *data);
 void	err_alloc(void);
 void	err_mlx(void *addr);
+void	exit_success(t_fdf *data);
 
 #endif
