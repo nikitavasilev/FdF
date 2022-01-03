@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 12:09:26 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 03:35:39 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 21:56:31 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ int	main(int argc, char const *argv[])
 		data = (t_fdf *)malloc(sizeof(t_fdf));
 		if (!data)
 			err_alloc();
-		init(data, img);
 		read_map(argv[1], data);
-		init_shift(data);
+		init(data, img);
 		draw_map(data, img);
 		init_controls(data);
 		mlx_loop(data->mlx_ptr);
