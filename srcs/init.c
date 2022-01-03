@@ -6,16 +6,23 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 06:12:26 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 07:59:49 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 22:01:35 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "libft.h"
 
-void	init_shift(t_fdf *data)
+static void	init_shift(t_fdf *data)
 {
 	data->shift_x = (MENU_WIDTH + (WIDTH - (data->width * data->zoom))) / 2;
 	data->shift_y = (HEIGHT - (data->height * data->zoom)) / 2;
+}
+
+static void	init_zoom(t_fdf *data)
+{
+	data->zoom = ft_min((WIDTH - MENU_WIDTH) / data->width / 2,
+			HEIGHT / data->height / 2);
 }
 
 static int	init_img(t_fdf *data, t_data *img)
@@ -46,4 +53,6 @@ void	init(t_fdf *data, t_data *img)
 		err_mlx(data);
 	if (!init_img(data, img))
 		err_mlx(img);
+	init_zoom(data);
+	init_shift(data);
 }

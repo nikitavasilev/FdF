@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 14:13:45 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 21:56:20 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	draw_line(t_coord coord, t_fdf *data);
 void	draw_map(t_fdf *data, t_data *img);
 void	print_menu(t_fdf *data, t_data *img);
 void	init(t_fdf *data, t_data *img);
-void	init_shift(t_fdf *data);
 void	err_alloc(void);
 void	err_mlx(void *addr);
 void	exit_success(t_fdf *data);
