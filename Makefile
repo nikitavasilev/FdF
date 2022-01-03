@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2021/12/30 06:39:51 by nvasilev         ###   ########.fr        #
+#    Updated: 2022/01/03 03:16:27 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CFLAGS =		-Wall -Wextra -Werror -O3 -g
 RM =			rm -f
 
 MLX = minilibx-linux/libmlx.a
-LIBS = -L minilibx-linux/ -lmlx -lXext -lX11
+LIBS = -L minilibx-linux/ -lmlx -lXext -lX11 -lm
 INCLUDES = -I ./minilibx-linux/ -I ./includes/
 
 ################################################################################
@@ -34,7 +34,9 @@ SRCS =			./srcs/main.c \
 				./srcs/menu.c \
 				./srcs/init.c \
 				./srcs/error.c \
-				./srcs/exit.c
+				./srcs/exit.c \
+				./srcs/keyboard_controls.c \
+				./srcs/init_controls.c
 
 UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_putstr_fd.c \
@@ -49,7 +51,8 @@ UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_isdigit.c \
 				./utils/ft_atoi.c \
 				./utils/ft_split.c \
-				./utils/wdcounter.c
+				./utils/wdcounter.c \
+				./utils/ft_min.c
 
 ################################################################################
 #                                     OBJECTS                                  #
