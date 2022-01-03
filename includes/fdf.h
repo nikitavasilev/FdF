@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 06:40:11 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 07:44:42 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,12 @@
 # include <fcntl.h>
 # include <math.h>
 
-# define MAX(a, b) ((a > b) ? a : b)
-# define MIN(a, b) ((a < b) ? a : b)
-# define MOD(a) ((a < 0) ? -a : a)
-
 # define WIDTH 1920
 # define HEIGHT 1080
 # define MENU_WIDTH 240
 # define NAME "FdF - 3D Wireframe Viewer"
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*img;
 	char	*addr;
@@ -40,7 +36,17 @@ typedef struct	s_data
 	int		endian;
 }	t_data;
 
-typedef struct	s_fdf
+typedef struct s_coordinates
+{
+	float	x;
+	float	x1;
+	float	y;
+	float	y1;
+	int		z;
+	int		z1;
+}	t_coord;
+
+typedef struct s_fdf
 {
 	int		width;
 	int		height;
@@ -49,6 +55,7 @@ typedef struct	s_fdf
 	int		shift_x;
 	int		shift_y;
 	int		prev_key;
+	int		is_iso;
 
 	int		**z_matrix;
 	void	*mlx_ptr;
@@ -57,14 +64,18 @@ typedef struct	s_fdf
 }	t_fdf;
 
 void	read_map(const char *file_name, t_fdf *data);
-void	bresenham(float x, float y, float x1, float y1, t_fdf *data, t_data *img);
+void	bresenham(t_coord coord, t_fdf *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	draw(t_fdf *data, t_data *img);
+t_coord	get_coord(int x, int x1, int y, int y1);
+void	draw_line(t_coord coord, t_fdf *data);
+void	draw_map(t_fdf *data, t_data *img);
 void	print_menu(t_fdf *data, t_data *img);
 void	init(t_fdf *data, t_data *img);
 void	init_shift(t_fdf *data);
 void	err_alloc(void);
 void	err_mlx(void *addr);
 void	exit_success(t_fdf *data);
+int		key_press(int key, t_fdf *data);
+void	init_controls(t_fdf *data);
 
 #endif
