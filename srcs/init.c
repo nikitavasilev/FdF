@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 06:12:26 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 06:15:08 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 07:59:49 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_shift(t_fdf *data)
 {
-	data->shift_x = MENU_WIDTH + (WIDTH - (data->width * data->zoom)) / 2;
+	data->shift_x = (MENU_WIDTH + (WIDTH - (data->width * data->zoom))) / 2;
 	data->shift_y = (HEIGHT - (data->height * data->zoom)) / 2;
 }
 
@@ -35,6 +35,7 @@ static int	init_mlx(t_fdf *data, t_data *img)
 	if (!data->mlx_ptr || !data->win_ptr)
 		return (0);
 	data->prev_key = 0;
+	data->is_iso = 1;
 	data->img = img;
 	return (1);
 }
