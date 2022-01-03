@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 04:24:44 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 05:16:37 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 03:16:48 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 char	*get_next_line(int fd);
 size_t	wdcounter(char const *str, char c);
+int		ft_min(int a, int b);
 
 #endif
