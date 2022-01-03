@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 07:44:42 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 14:13:45 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_fdf
 void	read_map(const char *file_name, t_fdf *data);
 void	bresenham(t_coord coord, t_fdf *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-t_coord	get_coord(int x, int x1, int y, int y1);
+t_coord	get_coord(int x, int y, int x1, int y1);
 void	draw_line(t_coord coord, t_fdf *data);
 void	draw_map(t_fdf *data, t_data *img);
 void	print_menu(t_fdf *data, t_data *img);

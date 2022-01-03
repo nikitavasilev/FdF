@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 06:31:38 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 08:48:09 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 14:57:59 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	bresenham(t_coord coord, t_fdf *data)
 		isometric(&coord.x1, &coord.y1, coord.z1);
 	}
 	coord.x += data->shift_x;
-	coord.y += data->shift_y;
 	coord.x1 += data->shift_x;
+	coord.y += data->shift_y;
 	coord.y1 += data->shift_y;
 	draw_line(coord, data);
 }
@@ -93,9 +93,9 @@ void	draw_map(t_fdf *data, t_data *img)
 		while (x < data->width)
 		{
 			if (x < data->width - 1)
-				bresenham(project(get_coord(x, x + 1, y, y), data), data);
-			if (y < data-> height - 1)
-				bresenham(project(get_coord(x, x, y, y + 1), data), data);
+				bresenham(project(get_coord(x, y, x + 1, y), data), data);
+			if (y < data->height - 1)
+				bresenham(project(get_coord(x, y, x, y + 1), data), data);
 			x++;
 		}
 		y++;

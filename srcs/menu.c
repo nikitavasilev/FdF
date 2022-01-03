@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 00:53:07 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 08:40:42 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 14:13:13 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "color.h"
 #include "text.h"
 
-t_coord	get_coord(int x, int x1, int y, int y1)
+t_coord	get_coord(int x, int y, int x1, int y1)
 {
 	t_coord	coord;
 
@@ -28,10 +28,10 @@ t_coord	get_coord(int x, int x1, int y, int y1)
 static void	print_square(t_fdf *data)
 {
 	data->color = COLOR_WHITE;
-	draw_line(get_coord(10, 215, 10, 10), data);
-	draw_line(get_coord(215, 215, 10, 310), data);
-	draw_line(get_coord(10, 10, 310, 10), data);
-	draw_line(get_coord(215, 10, 310, 310), data);
+	draw_line(get_coord(10, 10, 215, 10), data);
+	draw_line(get_coord(215, 10, 215, 310), data);
+	draw_line(get_coord(10, 310, 10, 10), data);
+	draw_line(get_coord(215, 310, 10, 310), data);
 }
 
 void	print_menu(t_fdf *data, t_data *img)
