@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:52:34 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 22:07:37 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 22:12:40 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "libft.h"
 
-void	get_height_and_width(const char *file_name, t_fdf *data)
+static void	get_height_and_width(const char *file_name, t_fdf *data)
 {
 	char	*line;
 	int		fd;
@@ -34,7 +34,7 @@ void	get_height_and_width(const char *file_name, t_fdf *data)
 	close(fd);
 }
 
-void	fill_matrix(int *z_line, char *line)
+static void	fill_matrix(int *z_line, char *line)
 {
 	char	**nums;
 	int		i;

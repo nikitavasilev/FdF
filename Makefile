@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2022/01/03 03:16:27 by nvasilev         ###   ########.fr        #
+#    Updated: 2022/01/03 22:13:44 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ INCLUDES = -I ./minilibx-linux/ -I ./includes/
 ################################################################################
 
 SRCS =			./srcs/main.c \
-				./srcs/read_file.c \
+				./srcs/read_map.c \
 				./srcs/draw.c \
 				./srcs/menu.c \
 				./srcs/init.c \
