@@ -6,19 +6,19 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 02:58:22 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 04:31:14 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 13:04:10 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	free_and_reset(char **pointer)
+static void	free_and_reset(char **pointer)
 {
 	free(*pointer);
 	*pointer = NULL;
 }
 
-char	*get_line(char **remainder, char **line)
+static char	*get_line(char **remainder, char **line)
 {
 	size_t	len;
 	char	*new_rem;
@@ -31,6 +31,8 @@ char	*get_line(char **remainder, char **line)
 	{
 		*line = ft_substr(*remainder, 0, (len + 1));
 		new_rem = ft_strdup(&(*remainder)[len + 1]);
+		if (!*new_rem)
+			free_and_reset(&new_rem);
 	}
 	else
 		*line = ft_strdup(*remainder);
@@ -38,7 +40,7 @@ char	*get_line(char **remainder, char **line)
 	return (new_rem);
 }
 
-size_t	read_file(int fd, char **buffer, char **remainder, char **line)
+static size_t	read_file(int fd, char **buffer, char **remainder, char **line)
 {
 	char	*temp;
 	size_t	ret_read;
