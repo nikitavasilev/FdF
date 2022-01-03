@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:52:34 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 05:16:16 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 03:21:02 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	read_map(const char *file_name, t_fdf *data)
 
 	line = NULL;
 	get_height_and_width(file_name, data);
-	data->zoom = MIN((WIDTH - MENU_WIDTH) / data->width / 2, HEIGHT / data->height / 2);
+	data->zoom = ft_min((WIDTH - MENU_WIDTH) / data->width / 2, HEIGHT / data->height / 2);
 	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
 	while (i < data->height)
