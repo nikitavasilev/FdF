@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 00:53:07 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 04:18:51 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/03 08:40:42 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,24 @@
 #include "color.h"
 #include "text.h"
 
-void	draw_line(float x, float y, float x1, float y1, t_fdf *data, t_data *img)
+t_coord	get_coord(int x, int x1, int y, int y1)
 {
-	float	x_step;
-	float	y_step;
-	int		max;
+	t_coord	coord;
 
-	x_step = x1 - x;
-	y_step = y1 - y;
-	max = MAX(MOD(x_step), MOD(y_step));
-	x_step /= max;
-	y_step /= max;
-	while ((int)(x - x1) || (int)(y - y1))
-	{
-		my_mlx_pixel_put(img, x, y, data->color);
-		x += x_step;
-		y += y_step;
-	}
+	coord.x = x;
+	coord.x1 = x1;
+	coord.y = y;
+	coord.y1 = y1;
+	return (coord);
 }
 
-void	print_square(t_fdf *data, t_data *img)
+static void	print_square(t_fdf *data)
 {
 	data->color = COLOR_WHITE;
-	draw_line(10, 10, 200, 10, data, img);
-	draw_line(200, 10, 200, 240, data, img);
-	draw_line(10, 10, 10, 240, data, img);
-	draw_line(200, 240, 10, 240, data, img);
+	draw_line(get_coord(10, 215, 10, 10), data);
+	draw_line(get_coord(215, 215, 10, 310), data);
+	draw_line(get_coord(10, 10, 310, 10), data);
+	draw_line(get_coord(215, 10, 310, 310), data);
 }
 
 void	print_menu(t_fdf *data, t_data *img)
@@ -51,7 +43,7 @@ void	print_menu(t_fdf *data, t_data *img)
 	y = 0;
 	mlx = data->mlx_ptr;
 	win = data->win_ptr;
-	print_square(data, img);
+	print_square(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, img->img, 0, 0);
 	mlx_string_put(mlx, win, 40, y += 35, COLOR_L_GREY, STR_MENU);
 	mlx_string_put(mlx, win, 35, y += 35, COLOR_L_GREY, STR_ZOOM);
@@ -60,5 +52,8 @@ void	print_menu(t_fdf *data, t_data *img)
 	mlx_string_put(mlx, win, 35, y += 30, COLOR_L_GREY, STR_PROJECTION);
 	mlx_string_put(mlx, win, 55, y += 25, COLOR_L_GREY, STR_ISOMETRIC);
 	mlx_string_put(mlx, win, 55, y += 25, COLOR_L_GREY, STR_PARALLEL);
+	mlx_string_put(mlx, win, 35, y += 30, COLOR_L_GREY, STR_Z_AXIS);
+	mlx_string_put(mlx, win, 55, y += 25, COLOR_L_GREY, STR_Z_INC);
+	mlx_string_put(mlx, win, 55, y += 25, COLOR_L_GREY, STR_Z_DEC);
 	mlx_string_put(mlx, win, WIDTH - 200, HEIGHT - 30, COLOR_L_GREY, STR_QUIT);
 }
