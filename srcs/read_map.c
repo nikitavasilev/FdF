@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 02:52:34 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 22:12:40 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/04 11:43:08 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void	get_height_and_width(const char *file_name, t_fdf *data)
 
 	line = NULL;
 	fd = open(file_name, O_RDONLY);
+	if (!fd)
+		err_open();
 	line = get_next_line(fd);
 	if (line)
 		data->width = wdcounter(line, ' ');
@@ -34,19 +36,20 @@ static void	get_height_and_width(const char *file_name, t_fdf *data)
 	close(fd);
 }
 
-static void	fill_matrix(int *z_line, char *line)
+static void	fill_matrix(int *z_line, char *line, t_fdf *data)
 {
 	char	**nums;
 	int		i;
 
 	nums = ft_split(line, ' ');
 	i = 0;
-	while (nums[i])
+	while (i < data->width)
 	{
 		z_line[i] = ft_atoi(nums[i]);
 		free(nums[i]);
 		i++;
 	}
+	free(nums[i]);
 	free(nums);
 }
 
@@ -62,6 +65,8 @@ void	read_map(const char *file_name, t_fdf *data)
 	if (!data->z_matrix)
 		err_alloc();
 	fd = open(file_name, O_RDONLY);
+	if (!fd)
+		err_open();
 	i = 0;
 	while (i < data->height)
 	{
@@ -69,7 +74,7 @@ void	read_map(const char *file_name, t_fdf *data)
 		if (!data->z_matrix[i])
 			err_alloc();
 		line = get_next_line(fd);
-		fill_matrix(data->z_matrix[i++], line);
+		fill_matrix(data->z_matrix[i++], line, data);
 		free(line);
 	}
 	close(fd);
