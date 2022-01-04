@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/03 21:56:20 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/04 02:56:34 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_coordinates
 	float	y1;
 	int		z;
 	int		z1;
+	int		color;
 }	t_coord;
 
 typedef struct s_fdf
