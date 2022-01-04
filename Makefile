@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2022/01/04 16:01:15 by nvasilev         ###   ########.fr        #
+#    Updated: 2022/01/04 16:20:01 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,4 +89,6 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY: all clean fclean re
+bonus: all
+
+.PHONY: all clean fclean bonus re
