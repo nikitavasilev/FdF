@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/04 02:56:34 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/04 16:01:48 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,14 @@ typedef struct s_coordinates
 	int		color;
 }	t_coord;
 
+typedef struct s_color
+{
+	int		red;
+	int		green;
+	int		blue;
+	double	percentage;
+}	t_color;
+
 typedef struct s_fdf
 {
 	int		width;
@@ -57,6 +65,9 @@ typedef struct s_fdf
 	int		shift_y;
 	int		prev_key;
 	int		is_iso;
+	double	x_axis;
+	double	y_axis;
+	double	z_axis;
 
 	int		**z_matrix;
 	void	*mlx_ptr;
@@ -65,7 +76,7 @@ typedef struct s_fdf
 }	t_fdf;
 
 void	read_map(const char *file_name, t_fdf *data);
-void	bresenham(t_coord coord, t_fdf *data);
+void	project(t_coord coord, t_fdf *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 t_coord	get_coord(int x, int y, int x1, int y1);
 void	draw_line(t_coord coord, t_fdf *data);
@@ -73,9 +84,16 @@ void	draw_map(t_fdf *data, t_data *img);
 void	print_menu(t_fdf *data, t_data *img);
 void	init(t_fdf *data, t_data *img);
 void	err_alloc(void);
+void	err_open(void);
 void	err_mlx(void *addr);
 void	exit_success(t_fdf *data);
 int		key_press(int key, t_fdf *data);
 void	init_controls(t_fdf *data);
+void	rotate_axis(int key, t_fdf *data);
+void	rotate_x(float *y, int *z, double alpha);
+void	rotate_y(float *x, int *z, double beta);
+void	rotate_z(float *x, float *y, double gamma);
+int		get_color(t_coord current, t_coord start, t_coord end, t_coord delta);
+void	move(int key, t_fdf *data);
 
 #endif
