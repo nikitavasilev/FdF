@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:23 by nvasilev          #+#    #+#             */
-/*   Updated: 2022/01/04 16:01:48 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/04 18:16:29 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
-# define MENU_WIDTH 240
+# define MENU_WIDTH 220
 # define NAME "FdF - 3D Wireframe Viewer"
 
 typedef struct s_data
