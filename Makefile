@@ -6,7 +6,7 @@
 #    By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 00:24:06 by nvasilev          #+#    #+#              #
-#    Updated: 2022/01/03 22:13:44 by nvasilev         ###   ########.fr        #
+#    Updated: 2022/01/04 16:01:15 by nvasilev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,12 @@ SRCS =			./srcs/main.c \
 				./srcs/error.c \
 				./srcs/exit.c \
 				./srcs/keyboard_controls.c \
-				./srcs/init_controls.c
+				./srcs/init_controls.c \
+				./srcs/color.c \
+				./srcs/project.c \
+				./srcs/get_coord.c \
+				./srcs/move.c \
+				./srcs/rotate.c
 
 UTILS =			./utils/ft_putchar_fd.c \
 				./utils/ft_putstr_fd.c \
