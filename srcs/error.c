@@ -6,7 +6,7 @@
 /*   By: nvasilev <nvasilev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 06:08:32 by nvasilev          #+#    #+#             */
-/*   Updated: 2021/12/30 06:23:13 by nvasilev         ###   ########.fr       */
+/*   Updated: 2022/01/04 11:42:00 by nvasilev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 void	err_alloc(void)
 {
 	perror("Error: malloc() failed.");
+	exit(EXIT_FAILURE);
+}
+
+void	err_open(void)
+{
+	perror("Error: open() failed.");
 	exit(EXIT_FAILURE);
 }
 
